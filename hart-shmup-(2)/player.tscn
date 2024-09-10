@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://mfffi440a6n8"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_ucpmp"]
+[ext_resource type="Texture2D" uid="uid://cegylwv1sv21i" path="res://Assets/playerShip1_blue.png" id="2_ha2sy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bqvmb"]
+size = Vector2(100, 75)
+
+[node name="Player" type="CharacterBody2D" groups=["Player"]]
+script = ExtResource("1_ucpmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ha2sy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bqvmb")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -38)

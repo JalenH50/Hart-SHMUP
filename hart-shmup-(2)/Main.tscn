@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dgmdcoqn0b8ug"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_d2a50"]
+[ext_resource type="PackedScene" uid="uid://mfffi440a6n8" path="res://player.tscn" id="1_fwcqr"]
+[ext_resource type="PackedScene" uid="uid://dbbutpckhbm7l" path="res://Enemy.tscn" id="2_fjtio"]
+[ext_resource type="PackedScene" uid="uid://ivvgjmn172x2" path="res://Bullet.tscn" id="4_3bkko"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_d2a50")
+
+[node name="Player" parent="." instance=ExtResource("1_fwcqr")]
+position = Vector2(570, 608)
+
+[node name="Enemy" parent="." instance=ExtResource("2_fjtio")]
+position = Vector2(-110, 117)
+
+[node name="Bullet" parent="." instance=ExtResource("4_3bkko")]
+position = Vector2(-126, 34)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="txtScore" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "0"
+
+[connection signal="enemy_hit" from="Bullet" to="." method="_on_bullet_enemy_hit"]
+[connection signal="timeout" from="Timer" to="." method="_on_spawn_timer_timeout"]
