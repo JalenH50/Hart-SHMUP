@@ -11,6 +11,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("shoot"):
 		var instance = bullet.instantiate()
+		instance.enemy_hit.connect(get_node("/root/Node2D")._on_bullet_enemy_hit)
 		instance.position = $Marker2D.global_position
 		get_parent().add_child(instance)
 	move_and_slide()

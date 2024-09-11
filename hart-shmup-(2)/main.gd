@@ -12,7 +12,7 @@ func _ready():
 func incrementScore() -> void:
 	score +=1
 	if txtScore:
-		txtScore.txt = str(score)
+		txtScore.text = str(score)
 	
 func _on_spawn_timer_timeout():
 	spawnEnemy()
@@ -23,4 +23,5 @@ func spawnEnemy():
 	get_tree().current_scene.add_child(instance)
 
 func _on_bullet_enemy_hit() -> void:
+	print("_on_bullet_enemy_hit success")
 	incrementScore()

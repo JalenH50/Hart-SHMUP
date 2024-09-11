@@ -5,8 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dbbutpckhbm7l" path="res://Enemy.tscn" id="2_fjtio"]
 [ext_resource type="PackedScene" uid="uid://ivvgjmn172x2" path="res://Bullet.tscn" id="4_3bkko"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("txtScore")]
 script = ExtResource("1_d2a50")
+txtScore = NodePath("txtScore")
 
 [node name="Player" parent="." instance=ExtResource("1_fwcqr")]
 position = Vector2(570, 608)
